@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from graph.chains.retrieval_grader import GradeDocuments, retrieval_grader
-
+from graph.chains.generation import generation_chain
 from ingestion import retriever
 
 def test_retrival_grader_answer_yes() -> None:
@@ -22,7 +22,7 @@ def test_retrival_grader_answer_no() -> None:
     question = "agent memory"
     docs = retriever.invoke(question)
     ## docs[0] is the most relevant document ( highest score )
-    doc_txt = docs[0].page_content
+    doc_txt = docs[1].page_content
 
     res: GradeDocuments = retrieval_grader.invoke(
         {"question": "how to make pizza", "document": doc_txt}
@@ -30,6 +30,13 @@ def test_retrival_grader_answer_no() -> None:
 
     assert res.binary_score == "no"
 
+def test_generation_chain() -> None:
+    question = "agent memory"
+    docs = retriever.invoke(question)
+
+    # generation = generation_chain.invoke({"context": docs, "question": question})
+    # print(generation)
+    print(docs)
 
 
 
