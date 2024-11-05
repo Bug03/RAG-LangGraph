@@ -15,7 +15,7 @@ def decide_to_generate(state):
 
     if state["web_search"]:
         print(
-            "---DEISION: NOT ALL DOCUMENTS ARE NOT RELEVANT TO QUESTION, INCLUDE WEB SEARCH---"
+            "---DECISION: NOT ALL DOCUMENTS ARE NOT RELEVANT TO QUESTION, INCLUDE WEB SEARCH---"
         )
         return WEB_SEARCH
     else:
