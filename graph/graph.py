@@ -103,4 +103,4 @@ workflow.add_edge(GENERATE, END)
 
 app = workflow.compile()
 
-app.get_graph().draw_mermaid_png(output_file_path="Self_RAG.png")
+app.get_graph().draw_mermaid_png(output_file_path="Adaptive_RAG.png")
